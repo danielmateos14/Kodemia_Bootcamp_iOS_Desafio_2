@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4963E1622A8492EC009A766E /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4963E1612A8492EC009A766E /* LoginModel.swift */; };
+		4963E1652A849356009A766E /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4963E1642A849356009A766E /* LoginViewModel.swift */; };
+		4963E1672A84B160009A766E /* RegisterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4963E1662A84B160009A766E /* RegisterModel.swift */; };
+		4963E1692A84B1C2009A766E /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4963E1682A84B1C2009A766E /* RegisterViewModel.swift */; };
 		B415149C2A4D19DD00880125 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415149B2A4D19DD00880125 /* LoginViewController.swift */; };
 		B415149E2A4D281400880125 /* RegistroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415149D2A4D281400880125 /* RegistroViewController.swift */; };
 		B41514A02A4D2BCE00880125 /* Extras.swift in Sources */ = {isa = PBXBuildFile; fileRef = B415149F2A4D2BCE00880125 /* Extras.swift */; };
@@ -29,6 +33,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4963E1612A8492EC009A766E /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		4963E1642A849356009A766E /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		4963E1662A84B160009A766E /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		4963E1682A84B1C2009A766E /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		B415149B2A4D19DD00880125 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		B415149D2A4D281400880125 /* RegistroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistroViewController.swift; sourceTree = "<group>"; };
 		B415149F2A4D2BCE00880125 /* Extras.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extras.swift; sourceTree = "<group>"; };
@@ -63,12 +71,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4963E1632A849349009A766E /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4963E1642A849356009A766E /* LoginViewModel.swift */,
+				4963E1682A84B1C2009A766E /* RegisterViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		49EE6A5F2A74A21500D09797 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				B47B98922A579FEB0074727A /* MoviesData.swift */,
 				B47B98972A57BC6A0074727A /* CollectionMovieObject.swift */,
 				B436BE592A4FD2DC0079872A /* MovieObj.swift */,
+				4963E1612A8492EC009A766E /* LoginModel.swift */,
+				4963E1662A84B160009A766E /* RegisterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -126,6 +145,7 @@
 		B4ADB6D22A4BC1F2007D326C /* ModuloUIKit */ = {
 			isa = PBXGroup;
 			children = (
+				4963E1632A849349009A766E /* ViewModel */,
 				49EE6A602A74A29F00D09797 /* Delegates */,
 				49EE6A5F2A74A21500D09797 /* Model */,
 				B47B988D2A5783760074727A /* Extensions */,
@@ -217,10 +237,14 @@
 				B47B98952A57A8810074727A /* DetalleViewController.swift in Sources */,
 				B47B98932A579FEB0074727A /* MoviesData.swift in Sources */,
 				B4ADB6D82A4BC1F2007D326C /* ViewController.swift in Sources */,
+				4963E1652A849356009A766E /* LoginViewModel.swift in Sources */,
+				4963E1622A8492EC009A766E /* LoginModel.swift in Sources */,
 				B47B989C2A590F2B0074727A /* GridViewController.swift in Sources */,
+				4963E1692A84B1C2009A766E /* RegisterViewModel.swift in Sources */,
 				B4ADB6D42A4BC1F2007D326C /* AppDelegate.swift in Sources */,
 				B415149E2A4D281400880125 /* RegistroViewController.swift in Sources */,
 				B41514A02A4D2BCE00880125 /* Extras.swift in Sources */,
+				4963E1672A84B160009A766E /* RegisterModel.swift in Sources */,
 				B47B98912A5783760074727A /* UIColor++.swift in Sources */,
 				B47B989A2A58F0000074727A /* MovieCollectionViewCell.swift in Sources */,
 				B4ADB6D62A4BC1F2007D326C /* SceneDelegate.swift in Sources */,

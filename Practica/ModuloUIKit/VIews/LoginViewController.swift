@@ -10,11 +10,13 @@ import SwiftUI
 
 class LoginViewController: UIViewController {
     
+    let loginViewModel = LoginViewModel()
     
     var newView: UIView? //Variable de tipo View
     var titleLabel: UILabel?
     var lineLabel1: UILabel?
     var lineLabel2: UILabel?
+    var labelError: UILabel?
     var emailTextField: UITextField?
     var passwordTexField: UITextField?
     var buttonLogin: UIButton?
@@ -33,6 +35,8 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         
         initialComponents()
+//        buttonLogin?.addTarget(self, action: #selector(navegarMovies), for: .touchUpInside)
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -93,6 +97,7 @@ class LoginViewController: UIViewController {
 //        emailTextField?.layer.borderColor = UIColor.yellow.cgColor
 //        emailTextField?.layer.borderWidth = 1.5
         //        emailTextField?.bounds.size.width = 200
+        emailTextField?.addTarget(self, action: #selector(emailTextFieldEditingChanged), for: .editingChanged)
         viewTextFields?.addSubview(emailTextField!)
         emailTextField?.translatesAutoresizingMaskIntoConstraints = false
         emailTextField?.widthAnchor.constraint(equalToConstant: 230).isActive = true
@@ -109,6 +114,7 @@ class LoginViewController: UIViewController {
 //        passwordTexField?.layer.borderColor = UIColor.yellow.cgColor
 //        passwordTexField?.layer.borderWidth = 1.5
         passwordTexField?.isSecureTextEntry = true
+        passwordTexField?.addTarget(self, action: #selector(passwordTextFieldEditingChanged), for: .editingChanged)
         viewTextFields?.addSubview(passwordTexField!)
         passwordTexField?.translatesAutoresizingMaskIntoConstraints = false
         passwordTexField?.widthAnchor.constraint(equalToConstant: 230).isActive = true
@@ -171,6 +177,17 @@ class LoginViewController: UIViewController {
         buttonLogin?.heightAnchor.constraint(equalToConstant: 50).isActive = true
         buttonLogin?.topAnchor.constraint(equalTo: viewTextFields!.bottomAnchor, constant:40).isActive = true
         buttonLogin?.centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: 0).isActive = true
+        labelError = UILabel()
+        labelError?.textAlignment = .center
+        labelError?.textColor = Extras().titleColor
+        labelError?.textAlignment = .center
+        labelError?.font = UIFont(name: "Arial Bold", size: 15)
+        labelError?.text = " "
+        view!.addSubview(labelError!)
+        labelError?.translatesAutoresizingMaskIntoConstraints = false
+        labelError?.topAnchor.constraint(equalTo: buttonLogin!.bottomAnchor, constant:10).isActive = true
+        labelError?.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
         
         buttonFacebook = UIButton()
         buttonFacebook?.backgroundColor = Extras().facebookBlueColor
@@ -217,14 +234,44 @@ class LoginViewController: UIViewController {
         imageViewGoogle?.heightAnchor.constraint(equalToConstant: 40).isActive = true
         imageViewGoogle?.topAnchor.constraint(equalTo: buttonGoogle!.topAnchor, constant: 5).isActive = true
         imageViewGoogle?.leadingAnchor.constraint(equalTo: buttonGoogle!.leadingAnchor, constant: 5).isActive = true
+        
+    }
+    
+    func showError() {
+        labelError?.text = "Campos vacios"
+    }
+    
+    func hideError() {
+        labelError?.text = " "
+    }
+    
+    @objc private func emailTextFieldEditingChanged(){
+        hideError()
+        loginViewModel.email = emailTextField?.text ?? ""
+    }
+    
+    @objc private func passwordTextFieldEditingChanged() {
+        hideError()
+        loginViewModel.password = passwordTexField?.text ?? ""
     }
     
     @objc func navegarMovies(){
-        print("Navegaste a Movies")
-        let moviesVC = MoviesViewController()
-        moviesVC.modalPresentationStyle = .fullScreen
-        present(moviesVC, animated: true)
+        if loginViewModel.isValid {
+            print("Navegaste a Movies")
+            let moviesVC = MoviesViewController()
+            moviesVC.modalPresentationStyle = .fullScreen
+            present(moviesVC, animated: true)
+        } else {
+            showError()
+        }
     }
+    
+//    @objc func navegarMovies(){
+//        print("Navegaste a Movies")
+//        let moviesVC = MoviesViewController()
+//        moviesVC.modalPresentationStyle = .fullScreen
+//        present(moviesVC, animated: true)
+//    }
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .darkContent

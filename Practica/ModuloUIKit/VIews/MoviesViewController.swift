@@ -106,9 +106,18 @@ class MoviesViewController: UIViewController {
     }
     
     @objc func backToMain(){
+//        dismiss(animated: true, completion: nil)
+//        let viewController = ViewController()
+//        present(viewController, animated: true, completion: nil)
+        
+//        dismiss(animated: true, completion: nil)
+        //        self.dismiss(animated: true){
+        //
+        //        }
+        
         let goToMain = ViewController()
         goToMain.modalPresentationStyle = .fullScreen
-        present(goToMain, animated: true)
+        self.present(goToMain, animated: true)
     }
     
     func setConstraints(){
